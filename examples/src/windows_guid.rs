@@ -89,8 +89,8 @@ fn guid_to_uuid_le_encoded() {
 #[cfg(windows)]
 fn uuid_from_cocreateguid() {
     use uuid::{Uuid, Variant, Version};
-    use windows_sys::core;
     use windows_sys::Win32::System::Com::CoCreateGuid;
+    use windows_sys::core;
 
     let mut guid = core::GUID {
         data1: 0,

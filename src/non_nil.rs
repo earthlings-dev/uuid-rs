@@ -4,8 +4,8 @@
 use std::{cmp::Ordering, fmt, num::NonZeroU128};
 
 use crate::{
-    error::{Error, ErrorKind},
     Uuid,
+    error::{Error, ErrorKind},
 };
 
 /// A UUID that is guaranteed not to be the [nil UUID](https://www.ietf.org/rfc/rfc9562.html#name-nil-uuid).

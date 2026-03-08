@@ -63,7 +63,12 @@ macro_rules! unsafe_transmute_ref(
 // SAFETY: Callers must ensure this call would be safe when handled by zerocopy
 #[cfg(not(all(uuid_unstable, feature = "zerocopy")))]
 macro_rules! unsafe_transmute(
-    ($e:expr) => { unsafe { core::mem::transmute::<_, _>($e) } }
+    ($e:expr) => {
+        {
+            #[allow(clippy::missing_transmute_annotations)]
+            unsafe { core::mem::transmute::<_, _>($e) }
+        }
+    }
 );
 
 // SAFETY: Callers must ensure this call would be safe when handled by zerocopy

@@ -101,7 +101,9 @@ mod imp {
         not(feature = "rng-getrandom"),
         not(feature = "rng-rand")
     ))]
-    compile_error!("to use `uuid` on `wasm32-unknown-unknown`, specify a source of randomness using one of the `js`, `rng-getrandom`, or `rng-rand` features");
+    compile_error!(
+        "to use `uuid` on `wasm32-unknown-unknown`, specify a source of randomness using one of the `js`, `rng-getrandom`, or `rng-rand` features"
+    );
 
     // Using `rand`
     #[cfg(feature = "rng-rand")]
@@ -244,7 +246,7 @@ mod imp {
         DEALINGS IN THE SOFTWARE.
         */
 
-        use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
+        use wasm_bindgen::{JsValue, prelude::wasm_bindgen};
 
         // Maximum buffer size allowed in `Crypto.getRandomValuesSize` is 65536 bytes.
         // See https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
@@ -295,7 +297,7 @@ mod imp {
         }
 
         #[wasm_bindgen]
-        extern "C" {
+        unsafe extern "C" {
             // Crypto.getRandomValues()
             #[cfg(not(target_feature = "atomics"))]
             #[wasm_bindgen(js_namespace = ["globalThis", "crypto"], js_name = getRandomValues, catch)]

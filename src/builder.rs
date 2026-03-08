@@ -13,7 +13,7 @@
 //!
 //! [`Uuid`]: ../struct.Uuid.html
 
-use crate::{error::*, timestamp, Bytes, Uuid, Variant, Version};
+use crate::{Bytes, Uuid, Variant, Version, error::*, timestamp};
 
 /// A builder for creating a UUID.
 ///

@@ -1,4 +1,4 @@
-use crate::{non_nil::NonNilUuid, Builder, Uuid};
+use crate::{Builder, Uuid, non_nil::NonNilUuid};
 
 use arbitrary::{Arbitrary, Unstructured};
 

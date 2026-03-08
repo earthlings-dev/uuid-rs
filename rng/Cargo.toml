@@ -1,7 +1,8 @@
 [package]
 name = "uuid-rng-internal"
 version = "1.22.0"
-edition = "2021"
+edition.workspace = true
+rust-version.workspace = true
 authors = [
     "uuid-rs contributors"
 ]

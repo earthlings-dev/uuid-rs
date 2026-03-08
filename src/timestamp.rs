@@ -183,7 +183,9 @@ impl Timestamp {
         note = "`Timestamp::to_unix_nanos()` is deprecated and will be removed: use `Timestamp::to_unix()`"
     )]
     pub const fn to_unix_nanos(&self) -> u32 {
-        panic!("`Timestamp::to_unix_nanos()` is deprecated and will be removed: use `Timestamp::to_unix()`")
+        panic!(
+            "`Timestamp::to_unix_nanos()` is deprecated and will be removed: use `Timestamp::to_unix()`"
+        )
     }
 }
 
@@ -347,7 +349,7 @@ fn now() -> (u64, u32) {
     use wasm_bindgen::prelude::*;
 
     #[wasm_bindgen]
-    extern "C" {
+    unsafe extern "C" {
         // NOTE: This signature works around https://bugzilla.mozilla.org/show_bug.cgi?id=1787770
         #[wasm_bindgen(js_namespace = Date, catch)]
         fn now() -> Result<f64, JsValue>;
@@ -755,6 +757,12 @@ pub mod context {
         }
 
         impl RefUnwindSafe for ContextV7 {}
+
+        impl Default for ContextV7 {
+            fn default() -> Self {
+                Self::new()
+            }
+        }
 
         impl ContextV7 {
             /// Construct a new context that will reseed its counter on the first

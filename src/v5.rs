@@ -45,7 +45,7 @@ mod tests {
     #[cfg(all(target_arch = "wasm32", any(target_os = "unknown", target_os = "none")))]
     use wasm_bindgen_test::*;
 
-    use crate::{std::string::ToString, Variant, Version};
+    use crate::{Variant, Version, std::string::ToString};
 
     static FIXTURE: &[(&Uuid, &str, &str)] = &[
         (

@@ -6,7 +6,7 @@
 use crate::{Builder, Uuid};
 
 #[deprecated(note = "use types from the crate root instead")]
-pub use crate::{timestamp::context::Context, Timestamp};
+pub use crate::{Timestamp, timestamp::context::Context};
 
 impl Uuid {
     /// Create a new version 1 UUID using the current system time and node ID.
@@ -99,7 +99,7 @@ impl Uuid {
 mod tests {
     use super::*;
 
-    use crate::{std::string::ToString, Variant, Version};
+    use crate::{Variant, Version, std::string::ToString};
     #[cfg(all(target_arch = "wasm32", any(target_os = "unknown", target_os = "none")))]
     use wasm_bindgen_test::*;
 

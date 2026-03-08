@@ -3,7 +3,7 @@
 //! Note that you need to enable the `v7` Cargo feature
 //! in order to use this module.
 
-use crate::{rng, timestamp::Timestamp, Builder, Uuid};
+use crate::{Builder, Uuid, rng, timestamp::Timestamp};
 
 impl Uuid {
     /// Create a new version 7 UUID using the current time value.
@@ -100,7 +100,7 @@ impl Uuid {
 mod tests {
     use super::*;
 
-    use crate::{std::string::ToString, ClockSequence, NoContext, Variant, Version};
+    use crate::{ClockSequence, NoContext, Variant, Version, std::string::ToString};
 
     #[cfg(all(target_arch = "wasm32", any(target_os = "unknown", target_os = "none")))]
     use wasm_bindgen_test::*;

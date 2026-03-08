@@ -12,15 +12,15 @@
 use core::marker::PhantomData;
 
 use crate::{
+    Bytes, Uuid,
     error::*,
     fmt::{Braced, Hyphenated, Simple, Urn},
     non_nil::NonNilUuid,
     std::fmt,
-    Bytes, Uuid,
 };
 use serde_core::{
-    de::{self, Error as _},
     Deserialize, Deserializer, Serialize, Serializer,
+    de::{self, Error as _},
 };
 
 impl Serialize for Uuid {
@@ -472,7 +472,12 @@ pub mod simple {
                     Token::BorrowedStr(HYPHENATED_UUID_STR),
                     Token::TupleStructEnd,
                 ],
-                &format!("{}", de::value::Error::custom("UUID parsing failed: invalid group length in group 4: expected 12, found 12")),
+                &format!(
+                    "{}",
+                    de::value::Error::custom(
+                        "UUID parsing failed: invalid group length in group 4: expected 12, found 12"
+                    )
+                ),
             );
         }
     }
@@ -591,7 +596,12 @@ pub mod braced {
                     Token::BorrowedStr(HYPHENATED_UUID_STR),
                     Token::TupleStructEnd,
                 ],
-                &format!("{}", de::value::Error::custom("UUID parsing failed: invalid group length in group 4: expected 12, found 12")),
+                &format!(
+                    "{}",
+                    de::value::Error::custom(
+                        "UUID parsing failed: invalid group length in group 4: expected 12, found 12"
+                    )
+                ),
             );
         }
     }
@@ -709,7 +719,12 @@ pub mod urn {
                     Token::BorrowedStr(HYPHENATED_UUID_STR),
                     Token::TupleStructEnd,
                 ],
-                &format!("{}", de::value::Error::custom("UUID parsing failed: invalid group length in group 4: expected 12, found 12")),
+                &format!(
+                    "{}",
+                    de::value::Error::custom(
+                        "UUID parsing failed: invalid group length in group 4: expected 12, found 12"
+                    )
+                ),
             );
         }
     }

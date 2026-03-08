@@ -2,7 +2,8 @@
 name = "uuid-examples"
 version = "0.0.0"
 publish = false
-edition = "2021"
+edition.workspace = true
+rust-version.workspace = true
 
 [[example]]
 name = "random_uuid"
@@ -29,5 +30,5 @@ path = "../"
 features = ["v1", "v3", "v4", "v5", "v6", "v7", "v8"]
 
 [target.'cfg(windows)'.dev-dependencies.windows-sys]
-version = "0.48.0"
+version = "0.61.2"
 features = ["Win32_System_Com"]

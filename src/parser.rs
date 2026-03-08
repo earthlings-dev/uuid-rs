@@ -14,9 +14,9 @@
 //! [`Uuid`]: ../struct.Uuid.html
 
 use crate::{
+    Uuid,
     error::*,
     std::{convert::TryFrom, str},
-    Uuid,
 };
 
 #[cfg(feature = "std")]

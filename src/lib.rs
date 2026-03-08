@@ -234,7 +234,7 @@ pub mod fmt;
 pub mod timestamp;
 
 use core::hash::{Hash, Hasher};
-pub use timestamp::{context::NoContext, ClockSequence, Timestamp};
+pub use timestamp::{ClockSequence, Timestamp, context::NoContext};
 
 #[cfg(any(feature = "v1", feature = "v6"))]
 pub use timestamp::context::Context;

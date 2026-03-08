@@ -9,7 +9,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-use crate::{non_nil::NonNilUuid, Uuid};
+use crate::{Uuid, non_nil::NonNilUuid};
 
 impl slog::Value for Uuid {
     fn serialize(
@@ -37,7 +37,7 @@ impl slog::Value for NonNilUuid {
 mod tests {
     use crate::tests::new;
 
-    use slog::{crit, Drain};
+    use slog::{Drain, crit};
 
     #[test]
     fn test_slog_kv() {

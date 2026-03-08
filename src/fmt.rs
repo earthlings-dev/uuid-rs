@@ -14,8 +14,8 @@
 use core::str::FromStr;
 
 use crate::{
-    std::{borrow::Borrow, fmt, str},
     Error, Uuid, Variant,
+    std::{borrow::Borrow, fmt, str},
 };
 
 #[cfg(feature = "std")]
